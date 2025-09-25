@@ -54,3 +54,22 @@ export function calculateCartQuantity(){
 
   return cartQuantity;
 }
+
+/*
+  Loop throguh the cart and find the product.
+  Update the deliveryOptionId of the product.
+*/
+
+export function updateDeliveryOption(productId, deliveryOptionId){
+  let matchingItem;
+    
+  cart.forEach((cartItem) => {
+        if(productId === cartItem.productId){
+            matchingItem = cartItem;
+        }
+  });
+
+  matchingItem.deliveryOptionId = deliveryOptionId;
+
+  saveToStorage();
+}
